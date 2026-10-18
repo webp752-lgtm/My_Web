@@ -1,0 +1,693 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+
+    background: #E8E2D8;
+
+    color: #27352b;
+
+    font-family: "Roboto", sans-serif;
+}
+
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.sidebar {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 115px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 28px 12px;
+
+    background: #252a27;
+
+    border-right: 1px solid rgba(255, 255, 255, .08);
+
+    z-index: 1000;
+}
+
+
+.brand {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(135deg,
+            #6F8F72,
+            #3f5f46);
+
+    color: white;
+
+    font-size: 18px;
+    font-weight: 800;
+
+    box-shadow:
+        0 10px 25px rgba(111, 143, 114, .25);
+}
+
+
+.sidebar-nav {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 55px;
+}
+
+
+.sidebar-nav a {
+    width: 100%;
+    min-height: 70px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 15px;
+
+    color: #9ca49f;
+
+    text-decoration: none;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    transition: .3s ease;
+}
+
+
+.sidebar-nav a i {
+    font-size: 19px;
+}
+
+
+.sidebar-nav a:hover {
+    color: white;
+
+    background: rgba(255, 255, 255, .06);
+
+    transform: translateY(-2px);
+}
+
+
+.sidebar-nav a.active {
+    color: white;
+
+    background:
+        linear-gradient(135deg,
+            rgba(111, 143, 114, .85),
+            rgba(63, 95, 70, .85));
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, .2);
+}
+
+
+.sidebar-bottom {
+    margin-top: auto;
+
+    color: #737b76;
+
+    font-size: 9px;
+}
+
+
+/* ========================================
+   MAIN
+======================================== */
+
+.main-content {
+
+    margin-left: 115px;
+
+    min-height: 100vh;
+
+    padding: 70px 6vw;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.subscription-hero {
+
+    max-width: 1250px;
+
+    margin: 0 auto 60px;
+}
+
+
+.hero-label {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #6F8F72;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.hero-label i {
+
+    color: #F2A65A;
+
+    font-size: 7px;
+}
+
+
+.subscription-hero h1 {
+
+    margin: 20px 0;
+
+    max-width: 700px;
+
+    font-family: "League Gothic", sans-serif;
+
+    font-size: clamp(65px, 8vw, 105px);
+
+    line-height: .85;
+
+    font-weight: 400;
+}
+
+
+.subscription-hero h1 span {
+
+    color: #6F8F72;
+}
+
+
+.subscription-hero p {
+
+    max-width: 550px;
+
+    color: #737a75;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* ========================================
+   PLANS
+======================================== */
+
+.plans {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+.plan-card {
+
+    position: relative;
+
+    padding: 30px;
+
+    min-height: 520px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, .48);
+
+    border: 1px solid rgba(255, 255, 255, .7);
+
+    transition: .3s ease;
+
+    overflow: hidden;
+}
+
+
+.plan-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    top: -80px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background: rgba(111, 143, 114, .12);
+}
+
+
+.plan-card:hover {
+
+    transform: translateY(-8px);
+
+    background: rgba(255, 255, 255, .72);
+
+    box-shadow:
+        0 20px 40px rgba(39, 53, 43, .12);
+}
+
+
+.plan-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #6F8F72;
+
+    color: white;
+
+    font-size: 17px;
+
+    margin-bottom: 22px;
+}
+
+
+.plan-type {
+
+    color: #F2A65A;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.plan-card h2 {
+
+    margin: 8px 0;
+
+    font-size: 24px;
+}
+
+
+.plan-description {
+
+    min-height: 45px;
+
+    margin: 0;
+
+    color: #858b86;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* PRICE */
+
+.price {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 7px;
+
+    margin: 25px 0;
+}
+
+
+.price strong {
+
+    font-size: 38px;
+
+    font-weight: 800;
+}
+
+
+.price span {
+
+    color: #858b86;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* FEATURES */
+
+.features {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+
+.feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #555f58;
+
+    font-size: 11px;
+}
+
+
+.feature i {
+
+    width: 20px;
+    height: 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(111, 143, 114, .15);
+
+    color: #6F8F72;
+
+    font-size: 8px;
+}
+
+
+/* BUTTON */
+
+.subscribe-btn {
+
+    margin-top: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 14px 20px;
+
+    border-radius: 12px;
+
+    background: #27352b;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    transition: .3s ease;
+}
+
+
+.subscribe-btn:hover {
+
+    background: #6F8F72;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(63, 95, 70, .2);
+}
+
+
+/* ========================================
+   PAYMENT INFO
+======================================== */
+
+.payment-info {
+
+    max-width: 1250px;
+
+    margin: 60px auto 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+.payment-info>div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 20px;
+
+    border-radius: 17px;
+
+    background: rgba(255, 255, 255, .35);
+
+    border: 1px solid rgba(255, 255, 255, .55);
+}
+
+
+.payment-info>div>i {
+
+    color: #6F8F72;
+
+    font-size: 18px;
+}
+
+
+.payment-info div div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+
+.payment-info strong {
+
+    font-size: 12px;
+}
+
+
+.payment-info span {
+
+    color: #858b86;
+
+    font-size: 9px;
+
+    line-height: 1.5;
+}
+
+
+/* EMPTY */
+
+.empty-plans {
+
+    grid-column: 1 / -1;
+
+    text-align: center;
+
+    padding: 80px 20px;
+}
+
+
+.empty-plans i {
+
+    font-size: 40px;
+
+    color: #6F8F72;
+}
+
+
+.empty-plans h2 {
+
+    margin-bottom: 5px;
+}
+
+
+.empty-plans p {
+
+    color: #858b86;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .plans {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .payment-info {
+
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 650px) {
+
+    .sidebar {
+
+        width: 75px;
+
+        padding: 20px 8px;
+    }
+
+
+    .brand {
+
+        width: 48px;
+        height: 48px;
+
+        font-size: 15px;
+    }
+
+
+    .sidebar-nav {
+
+        margin-top: 35px;
+    }
+
+
+    .sidebar-nav a {
+
+        min-height: 58px;
+    }
+
+
+    .sidebar-nav a span:not(.material-symbols-outlined) {
+        display: none;
+    }
+
+
+    .main-content {
+
+        margin-left: 75px;
+
+        padding: 35px 17px;
+    }
+
+
+    .subscription-hero {
+
+        margin-bottom: 40px;
+    }
+
+
+    .subscription-hero h1 {
+
+        font-size: 70px;
+    }
+
+
+    .subscription-hero p {
+
+        font-size: 13px;
+    }
+
+
+    .plans {
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    .plan-card {
+
+        min-height: 500px;
+
+        padding: 25px;
+    }
+
+
+    .payment-info {
+
+        margin-top: 40px;
+    }
+
+}

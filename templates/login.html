@@ -1,0 +1,162 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Program it</title>
+
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Roboto:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="copyright">
+            © 2026
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+
+        <div class="auth-wrapper">
+
+
+            <div class="auth-card">
+
+
+                <div class="auth-icon">
+
+                    <i class="fa-solid fa-right-to-bracket"></i>
+
+                </div>
+
+
+                <div class="auth-title">
+
+                    <span>WELCOME BACK</span>
+
+                    <h1>
+                        Login
+                        <strong>To Program it</strong>
+                    </h1>
+
+                    <p>
+                        Sign in to continue to your account.
+                    </p>
+
+                </div>
+
+
+                {% if messages %}
+
+                {% for message in messages %}
+
+                <div class="message">
+
+                    <i class="fa-solid fa-circle-exclamation"></i>
+
+                    {{ message }}
+
+                </div>
+
+                {% endfor %}
+
+                {% endif %}
+
+
+                <form method="POST" class="auth-form">
+
+                    {% csrf_token %}
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Username
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            <input type="text" name="username" placeholder="Enter your username" required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Password
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input type="password" name="password" placeholder="Enter your password" required>
+
+                        </div>
+
+                    </div>
+
+
+                    <button type="submit" class="auth-button">
+
+                        Login
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </form>
+
+
+                <div class="auth-footer">
+
+                    Don't have an account?
+
+                    <a href="{% url 'register' %}">
+                        Register
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+</body>
+
+</html>

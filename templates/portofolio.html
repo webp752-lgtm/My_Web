@@ -1,0 +1,839 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#202522">
+
+    <title>Ahmad Mohamed | Web Developer</title>
+
+    <meta name="description"
+        content="البورتفوليو الشخصي لأحمد محمد مصطفى، مطور مواقع ويب باستخدام HTML وCSS وJavaScript وDjango.">
+
+    <!-- الخطوط -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- ملف CSS المنفصل -->
+    <link rel="stylesheet" href="{% static 'css\portofolio.css' %}">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+        <nav class="container navbar">
+
+            <a href="#home" class="logo">
+                <span class="logo-mark">A<span>.</span></span>
+
+                <span class="logo-copy">
+                    <strong>أحمد محمد</strong>
+                    <small>WEB DEVELOPER</small>
+                </span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="active">الرئيسية</a>
+                <a href="#about">نبذة عني</a>
+                <a href="#skills">مهاراتي</a>
+                <a href="#projects">مشاريعي</a>
+                <a href="#certificates">شهاداتي</a>
+                <a href="#contact">تواصل معي</a>
+            </div>
+
+            <a href="#contact" class="header-btn">
+                لنتحدث
+                <i class="fa-regular fa-paper-plane"></i>
+            </a>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero section" id="home">
+
+            <div class="container hero-grid">
+
+                <div class="hero-copy">
+
+                    <div class="eyebrow">
+                        <span class="status-dot"></span>
+                        أهلًا بك في موقعي الشخصي
+                    </div>
+
+                    <p class="hero-kicker">
+                        أنا أحمد محمد مصطفى
+                    </p>
+
+                    <h1>
+                        أحوّل الأفكار إلى
+                        <br>
+                        <span class="gradient-text">
+                            تجارب ويب مميزة.
+                        </span>
+                    </h1>
+
+                    <p class="hero-description">
+                        مطور ويب مهتم ببناء مواقع حديثة باستخدام
+                        HTML وCSS وJavaScript وDjango.
+                        أحب تحويل الأفكار إلى مشاريع عملية بتصميم
+                        جذاب وتجربة استخدام سهلة على جميع الأجهزة.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <a href="#projects" class="btn btn-primary">
+                            شاهد مشاريعي
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a>
+
+                        <a href="#about" class="btn btn-outline">
+                            <i class="fa-regular fa-user"></i>
+                            تعرف عليّ
+                        </a>
+
+                    </div>
+
+                    <div class="hero-socials">
+
+                        <span>تابعني:</span>
+
+                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+
+                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+
+                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"
+                            aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- الصورة الشخصية -->
+
+                <div class="hero-visual">
+
+                    <div class="visual-orbit orbit-a"></div>
+                    <div class="visual-orbit orbit-b"></div>
+
+                    <div class="portrait-frame">
+
+                        <!-- ضع صورتك في static/img/ahmad.jpg -->
+
+                        <img src="{% static 'img\self-photo.png' %}" alt="صورة أحمد محمد مصطفى" onerror="this.style.display='none';
+                        this.nextElementSibling.style.display='grid';">
+
+                        <div class="portrait-fallback">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                            <span>ضع صورتك هنا</span>
+                            <small>static/img/ahmad.jpg</small>
+                        </div>
+
+                        <div class="portrait-tag">
+
+                            <span class="tag-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </span>
+
+                            <span>
+                                <strong>Web Developer</strong>
+                                <small>Building my next idea</small>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="floating-chip chip-top">
+                        <i class="fa-brands fa-python"></i>
+                        Django
+                    </div>
+
+                    <div class="floating-chip chip-bottom">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        Web Development
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="#about" class="scroll-hint">
+                <span></span>
+                اكتشف المزيد
+            </a>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section class="section about-section" id="about">
+
+            <div class="container about-grid">
+
+                <div class="section-label">
+
+                    <span class="section-eyebrow">
+                        01 / نبذة عني
+                    </span>
+
+                    <h2>
+                        مطور يتعلم،
+                        <br>
+                        <span class="gradient-text">
+                            ويصنع أشياء حقيقية.
+                        </span>
+                    </h2>
+
+                </div>
+
+                <div class="about-content">
+
+                    <p>
+                        أنا أحمد محمد مصطفى، مهتم بتطوير مواقع الويب
+                        وبناء مشاريع تجمع بين التصميم الجذاب
+                        والوظائف العملية.
+                    </p>
+
+                    <p>
+                        أعمل على تطوير مهاراتي خطوة بخطوة،
+                        وأحوّل ما أتعلمه إلى تطبيقات ومواقع يمكن
+                        تجربتها واستخدامها. أهتم بالكود المنظم،
+                        والتصميم المتجاوب، وتجربة المستخدم.
+                    </p>
+
+                    <div class="about-points">
+
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            تصميم متجاوب
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            تطوير باستخدام Django
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            بناء مشاريع عملية
+                        </div>
+
+                        <div>
+                            <i class="fa-solid fa-check"></i>
+                            تطوير مستمر للمهارات
+                        </div>
+
+                    </div>
+
+                    <a href="#contact" class="text-link">
+                        هل لديك فكرة؟ تواصل معي
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section class="section skills-section" id="skills">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-eyebrow">
+                        02 / ما أستخدمه
+                    </span>
+
+                    <h2>
+                        مهاراتي
+                        <span class="gradient-text">التقنية</span>
+                    </h2>
+
+                    <p>
+                        التقنيات التي أتعلمها وأستخدمها في مشاريعي.
+                    </p>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+                    <article class="skill-card">
+                        <div class="skill-icon orange">
+                            <i class="fa-brands fa-html5"></i>
+                        </div>
+                        <h3>HTML5</h3>
+                        <p>بناء هيكل صفحات الويب بطريقة منظمة.</p>
+                        <span class="skill-type">Front-end</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon blue">
+                            <i class="fa-brands fa-css3-alt"></i>
+                        </div>
+                        <h3>CSS3</h3>
+                        <p>تصميم واجهات جذابة ومتجاوبة مع الشاشات.</p>
+                        <span class="skill-type">Front-end</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon yellow">
+                            <i class="fa-brands fa-js"></i>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <p>إضافة التفاعل والوظائف الديناميكية للمواقع.</p>
+                        <span class="skill-type">Front-end</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon green">
+                            <i class="fa-brands fa-python"></i>
+                        </div>
+                        <h3>Python</h3>
+                        <p>كتابة الأكواد وبناء منطق تطبيقات الويب.</p>
+                        <span class="skill-type">Programming</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon violet">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3>Django</h3>
+                        <p>تطوير تطبيقات ويب وربطها بقواعد البيانات.</p>
+                        <span class="skill-type">Back-end</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon purple">
+                            <i class="fa-brands fa-bootstrap"></i>
+                        </div>
+                        <h3>Bootstrap</h3>
+                        <p>إنشاء واجهات متجاوبة باستخدام مكونات جاهزة.</p>
+                        <span class="skill-type">CSS Framework</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon gray">
+                            <i class="fa-brands fa-git-alt"></i>
+                        </div>
+                        <h3>Git & GitHub</h3>
+                        <p>إدارة إصدارات الكود وحفظ المشاريع ومشاركتها.</p>
+                        <span class="skill-type">Tools</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon blue">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <h3>SQLite</h3>
+                        <p>تخزين بيانات التطبيقات وإدارتها.</p>
+                        <span class="skill-type">Database</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon orange">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3>MySQL</h3>
+                        <p>إدارة قواعد البيانات العلائقية والاستعلام عن البيانات.</p>
+                        <span class="skill-type">Database</span>
+                    </article>
+
+                </div>
+
+                <p class="honesty-note">
+                    <i class="fa-regular fa-lightbulb"></i>
+                    عدّل المهارات لتعبّر عن مستواك الفعلي.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROJECTS ================= -->
+
+        <section class="section projects-section" id="projects">
+
+            <div class="container">
+
+                <div class="section-heading heading-row">
+
+                    <div>
+                        <span class="section-eyebrow">
+                            03 / أعمال مختارة
+                        </span>
+
+                        <h2>
+                            مشاريعي
+                            <span class="gradient-text">العملية</span>
+                        </h2>
+
+                        <p>
+                            بعض المواقع التي عملت عليها.
+                        </p>
+                    </div>
+
+                    <a href="/projects/" class="text-link">
+                        عرض كل المشاريع
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+
+                </div>
+
+
+                <div class="projects-grid">
+
+                    <!-- مشروع متجر ATTAR -->
+
+                    <article class="project-card">
+
+                        <div class="project-art project-art-store">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                            <span>EL-ATTAR</span>
+                        </div>
+
+                        <div class="project-body">
+
+                            <div class="project-meta">
+                                <span>متجر إلكتروني</span>
+                                <span>HTML · CSS · JS</span>
+                            </div>
+
+                            <h3>متجر الهواتف والإكسسوارات</h3>
+
+                            <p>
+                                متجر إلكتروني عربي لعرض الهواتف والإكسسوارات،
+                                مع تصفية المنتجات وعربة تسوق.
+                            </p>
+
+                            <a href="https://attar-2000.web.app" target="_blank" rel="noopener noreferrer"
+                                class="project-link">
+                                استكشف المشروع
+                                <i class="fa-solid fa-arrow-up-left-from-square"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- مشروع المطعم -->
+
+                    <article class="project-card">
+
+                        <div class="project-art project-art-food">
+                            <span>Landing page</span>
+                        </div>
+
+                        <div class="project-body">
+
+                            <div class="project-meta">
+                                <span>موقع فخم</span>
+                                <span>Django · CSS</span>
+                            </div>
+
+                            <h3>Landing page</h3>
+
+                            <p>
+                                صفحة هبوط فاخره
+                            </p>
+
+                            <a href="{% url 'landing_page' %}" class="project-link">
+                                تفاصيل المشروع
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- مشروع MTT -->
+
+                    <article class="project-card">
+
+                        <div class="project-art project-art-code">
+                            <i class="fa-solid fa-terminal"></i>
+                            <span>MTT</span>
+                        </div>
+
+                        <div class="project-body">
+
+                            <div class="project-meta">
+                                <span>خدمات برمجية</span>
+                                <span>Python · Django</span>
+                            </div>
+
+                            <h3>Modern Technology Technique</h3>
+
+                            <p>
+                                مشروع لعرض خدمات تطوير المواقع
+                                والأعمال البرمجية بطريقة احترافية.
+                            </p>
+
+                            <a href="/" class="project-link">
+                                زيارة الموقع
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <p class="honesty-note">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    تأكد من صحة روابط المشاريع ووصف كل مشروع قبل النشر.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CERTIFICATES ================= -->
+
+        <section class="section certificates-section" id="certificates">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-eyebrow">
+                        04 / التعلم والتطوير
+                    </span>
+
+                    <h2>
+                        الشهادات
+                        <span class="gradient-text">والإنجازات</span>
+                    </h2>
+
+                    <p>
+                        شهاداتي ودوراتي التي حصلت عليها.
+                    </p>
+
+                </div>
+
+
+                <div class="certificates-grid">
+
+                    <!-- الشهادة الأولى -->
+
+                    <article class="certificate-card">
+
+                        <div class="certificate-preview">
+
+                            <img src="{% static 'img\certificate-1.png' %}" alt="شهادة تطوير الويب" onerror="this.style.display='none';
+                            this.nextElementSibling.style.display='flex';">
+
+                            <div class="certificate-placeholder">
+                                <i class="fa-solid fa-award"></i>
+                                <span>أضف صورة الشهادة</span>
+                            </div>
+
+                        </div>
+
+                        <div class="certificate-info">
+
+                            <span class="certificate-number">
+                                CERTIFICATE 01
+                            </span>
+
+                            <h3>دبلومه تطوير الويب</h3>
+                            <p>دبلومه معتمدة من ستيم</p>
+
+
+                            <a href="{% static 'img\certificate-1.png' %}" target="_blank" rel="noopener noreferrer">
+                                عرض الشهادة
+                                <i class="fa-solid fa-arrow-up-left-from-square"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- الشهادة الثانية -->
+
+                    <article class="certificate-card">
+
+                        <div class="certificate-preview">
+
+                            <img src="{% static 'img\certificate-2.png' %}" alt="الشهادة الثانية" onerror="this.style.display='none';
+                            this.nextElementSibling.style.display='flex';">
+
+                            <div class="certificate-placeholder">
+                                <i class="fa-solid fa-certificate"></i>
+                                <span>أضف صورة الشهادة</span>
+                            </div>
+
+                        </div>
+
+                        <div class="certificate-info">
+
+                            <span class="certificate-number">
+                                CERTIFICATE 02
+                            </span>
+
+                            <h3>شهاده باكتمال احد مستويات الدبلومه</h3>
+                            <p>شهادة معتمدة من ستيم</p>
+
+                            <a href="{% static 'img\certificate-2.png' %}" target="_blank" rel="noopener noreferrer">
+                                عرض الشهادة
+                                <i class="fa-solid fa-arrow-up-left-from-square"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                    <article class="certificate-card">
+
+                        <div class="certificate-preview">
+
+                            <img src="{% static 'img\certificate-3.png' %}" alt="الشهادة الثانية" onerror="this.style.display='none';
+                            this.nextElementSibling.style.display='flex';">
+
+                            <div class="certificate-placeholder">
+                                <i class="fa-solid fa-certificate"></i>
+                                <span>أضف صورة الشهادة</span>
+                            </div>
+
+                        </div>
+
+                        <div class="certificate-info">
+
+                            <span class="certificate-number">
+                                CERTIFICATE 03
+                            </span>
+
+                            <h3>شهاده باكتمال احد مستويات الدبلومه</h3>
+                            <p>شهادة معتمدة من ستيم</p>
+
+
+                            <a href="{% static 'img\certificate-3.png' %}" target="_blank" rel="noopener noreferrer">
+                                عرض الشهادة
+                                <i class="fa-solid fa-arrow-up-left-from-square"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section class="section contact-section" id="contact">
+
+            <div class="container contact-box">
+
+                <div class="contact-copy">
+
+                    <span class="section-eyebrow">
+                        05 / تواصل معي
+                    </span>
+
+                    <h2>
+                        عندك فكرة لمشروع؟
+                        <br>
+                        <span class="gradient-text">
+                            خلينا نبدأ سوا.
+                        </span>
+                    </h2>
+
+                    <p>
+                        يسعدني التواصل لمناقشة فكرة موقع أو مشروع برمجي،
+                        أو تبادل الخبرات والتعلم.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-actions">
+
+                    <!-- استبدل البريد ببريدك الحقيقي -->
+
+                    <a href="tel:+201023723736" class="btn btn-primary">
+                        <i class="fa-regular fa-envelope"></i>
+                        أرسل رساله
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-inner">
+
+            <a href="#home" class="footer-brand">
+                <span class="logo-mark">A<span>.</span></span>
+                أحمد محمد مصطفى
+            </a>
+
+            <p>
+                أتعلم، أبني، وأطور مشروعًا جديدًا في كل مرة.
+            </p>
+
+            <span>
+                © <span id="year"></span>
+                جميع الحقوق محفوظة
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // عناصر القائمة
+            const menuToggle = document.getElementById("menuToggle");
+            const navLinks = document.getElementById("navLinks");
+
+            // فتح وإغلاق قائمة الموبايل
+            if (menuToggle && navLinks) {
+
+                menuToggle.addEventListener("click", function () {
+
+                    const isOpen = navLinks.classList.toggle("open");
+
+                    menuToggle.setAttribute(
+                        "aria-expanded",
+                        String(isOpen)
+                    );
+
+                    menuToggle.innerHTML = isOpen
+                        ? '<i class="fa-solid fa-xmark"></i>'
+                        : '<i class="fa-solid fa-bars"></i>';
+
+                });
+
+                // إغلاق القائمة عند الضغط على أحد الروابط
+                navLinks.querySelectorAll("a").forEach(function (link) {
+
+                    link.addEventListener("click", function () {
+
+                        navLinks.classList.remove("open");
+
+                        menuToggle.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        menuToggle.innerHTML =
+                            '<i class="fa-solid fa-bars"></i>';
+
+                    });
+
+                });
+
+            }
+
+
+            // تحديث سنة حقوق النشر تلقائيًا
+            const year = document.getElementById("year");
+
+            if (year) {
+                year.textContent = new Date().getFullYear();
+            }
+
+
+            // تحديد القسم الظاهر في الشاشة داخل القائمة
+            const sections = document.querySelectorAll("main section[id]");
+            const navItems = document.querySelectorAll("#navLinks a");
+
+            if ("IntersectionObserver" in window) {
+
+                const observer = new IntersectionObserver(
+                    function (entries) {
+
+                        entries.forEach(function (entry) {
+
+                            if (entry.isIntersecting) {
+
+                                navItems.forEach(function (link) {
+                                    link.classList.remove("active");
+                                });
+
+                                const activeLink = document.querySelector(
+                                    '#navLinks a[href="#' + entry.target.id + '"]'
+                                );
+
+                                if (activeLink) {
+                                    activeLink.classList.add("active");
+                                }
+
+                            }
+
+                        });
+
+                    },
+                    {
+                        rootMargin: "-25% 0px -60% 0px"
+                    }
+                );
+
+                sections.forEach(function (section) {
+                    observer.observe(section);
+                });
+
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>

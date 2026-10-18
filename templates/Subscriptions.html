@@ -1,0 +1,297 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Program it | Subscriptions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=subscriptions" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/subscriptions.css' %}">
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <nav class="sidebar-nav">
+
+            {% if user.is_authenticated %}
+
+            <div class="user-menu">
+
+                <div class="user-profile">
+                    <span>
+                        <i class="fa-solid fa-user"></i>
+                        {{ user.username }}
+                    </span>
+                </div>
+
+                <a href="{% url 'logout' %}" class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+
+            {% else %}
+
+            <a href="{% url 'login' %}">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <span>Login</span>
+            </a>
+
+            {% endif %}
+
+
+            <a href="{% url 'home' %}">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+
+
+            <a href="{% url 'services' %}">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Services</span>
+            </a>
+
+
+            <a href="{% url 'projects' %}">
+                <i class="fa-solid fa-code"></i>
+                <span>Projects</span>
+            </a>
+
+
+            <a href="{% url 'contact' %}">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+
+
+            <a href="{% url 'subscriptions' %}" class="active">
+                <span class="material-symbols-outlined">subscriptions</span>
+                <span>Subscriptions</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+            © 2026
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <section class="subscription-hero">
+
+            <span class="hero-label">
+                <i class="fa-solid fa-circle"></i>
+                MTT SUBSCRIPTIONS
+            </span>
+
+            <h1>
+                Choose Your
+                <span>Plan.</span>
+            </h1>
+
+            <p>
+                Choose the right solution for your business,
+                website or digital project.
+            </p>
+
+        </section>
+
+
+        <!-- PLANS -->
+
+        <section class="plans">
+
+            {% for plan in plans %}
+
+            <div class="plan-card">
+
+                <div class="plan-icon">
+
+                    {% if "POS" in plan.name %}
+                    <i class="fa-solid fa-cash-register">
+
+                        {% elif "E-Commerce" in plan.name %}
+                        <i class="fa-solid fa-cart-shopping">
+
+                            {% elif "Portfolio" in plan.name %}
+                            <i class="fa-solid fa-user-tie">
+
+                                {% elif "Business" in plan.name %}
+                                <i class="fa-solid fa-building">
+
+                                    {% else %}
+                                    <i class="fa-solid fa-globe">
+                                        {% endif %}
+
+                                    </i>
+
+                </div>
+
+
+                <span class="plan-type">
+                    MTT SERVICE
+                </span>
+
+
+                <h2>
+                    {{ plan.name }}
+                </h2>
+
+
+                <p class="plan-description">
+                    {{ plan.description }}
+                </p>
+
+
+                <div class="price">
+
+                    <strong>
+                        {{ plan.price }}
+                    </strong>
+
+                    <span>
+                        $ USA
+                    </span>
+
+                </div>
+
+
+                <div class="features">
+
+                    {% for feature in plan.get_features %}
+
+                    <div class="feature">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        <span>
+                            {{ feature }}
+                        </span>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <a href="{% url 'subscription_payment' plan.id %}" class="subscribe-btn">
+
+                    Subscribe
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+            {% empty %}
+
+            <div class="empty-plans">
+
+                <i class="fa-solid fa-box-open"></i>
+
+                <h2>
+                    No plans available
+                </h2>
+
+                <p>
+                    Subscription plans will be available soon.
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </section>
+
+
+        <!-- INFORMATION -->
+
+        <section class="payment-info">
+
+            <div>
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <div>
+
+                    <strong>
+                        Manual Payment
+                    </strong>
+
+                    <span>
+                        Your subscription is activated after payment verification.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-clock"></i>
+
+                <div>
+
+                    <strong>
+                        Fast Response
+                    </strong>
+
+                    <span>
+                        We will contact you within 24 hours.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <i class="fa-solid fa-headset"></i>
+
+                <div>
+
+                    <strong>
+                        Personal Support
+                    </strong>
+
+                    <span>
+                        We will contact you to discuss your project details.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

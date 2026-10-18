@@ -1,0 +1,386 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=subscriptions" />
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>Program it | Home</title>
+</head>
+
+<body>
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <nav class="sidebar-nav">
+
+            {% if user.is_authenticated %}
+
+            <div class="user-menu">
+
+                <div class="user-profile">
+
+                    <span>
+                        <i class="fa-solid fa-user"></i>
+
+                        {{ user.username }}
+                    </span>
+
+                </div>
+
+                <a href="{% url 'logout' %}" class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+
+            {% else %}
+
+            <a href="{% url 'login' %}">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <span>Login</span>
+            </a>
+
+            {% endif %}
+
+            <a href="{% url 'home' %}" class="active">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="{% url 'services' %}">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Services</span>
+            </a>
+
+            <a href="{% url 'projects' %}">
+                <i class="fa-solid fa-code"></i>
+                <span>Projects</span>
+            </a>
+
+            <a href="{% url 'contact' %}">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+
+            <a href="{% url 'subscriptions' %}">
+                <span class="material-symbols-outlined">subscriptions</span>
+                <span>Subscriptions</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            © 2026
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="main-content">
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="hero-label">
+                    <i class="fa-solid fa-circle"></i>
+                    MODERN TECHNOLOGY TECHNIQUE
+                </span>
+
+                <h1>
+                    We Build
+                    <span>Digital</span>
+                    Experiences.
+                </h1>
+
+                <p>
+                    We design and develop modern websites,
+                    web applications and digital solutions
+                    that help businesses grow.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="{% url 'services' %}" class="primary-btn">
+                        Explore Services
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <a href="{% url 'projects' %}" class="secondary-btn">
+                        View Projects
+                    </a>
+
+                </div>
+
+                <div class="hero-info">
+
+                    <div>
+                        <strong>50+</strong>
+                        <span>Projects</span>
+                    </div>
+
+                    <div>
+                        <strong>20+</strong>
+                        <span>Clients</span>
+                    </div>
+
+                    <div>
+                        <strong>3+</strong>
+                        <span>Years Experience</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 HERO VISUAL
+            ========================== -->
+
+            <div class="hero-visual">
+
+                <div class="visual-circle"></div>
+
+                <div class="code-card">
+
+                    <div class="window-header">
+
+                        <div class="window-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <span>website.html</span>
+
+                    </div>
+
+                    <div class="code">
+
+                        <p>
+                            <span class="purple">&lt;</span>
+                            <span class="green">div</span>
+                            <span class="orange"> class</span>=
+                            <span class="yellow">"website"</span>
+                            <span class="purple">&gt;</span>
+                        </p>
+
+                        <p class="indent">
+                            <span class="purple">&lt;</span>
+                            <span class="green">h1</span>
+                            <span class="purple">&gt;</span>
+                            Hello World
+                            <span class="purple">&lt;/</span>
+                            <span class="green">h1</span>
+                            <span class="purple">&gt;</span>
+                        </p>
+
+                        <p class="indent">
+                            <span class="purple">&lt;</span>
+                            <span class="green">p</span>
+                            <span class="purple">&gt;</span>
+                            Build something great.
+                            <span class="purple">&lt;/</span>
+                            <span class="green">p</span>
+                            <span class="purple">&gt;</span>
+                        </p>
+
+                        <p>
+                            <span class="purple">&lt;/</span>
+                            <span class="green">div</span>
+                            <span class="purple">&gt;</span>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Floating Cards -->
+
+                <div class="floating-card card-one">
+                    <i class="fa-solid fa-code"></i>
+                    <div>
+                        <strong>Clean Code</strong>
+                        <span>Modern Development</span>
+                    </div>
+                </div>
+
+
+                <div class="floating-card card-two">
+                    <i class="fa-solid fa-bolt"></i>
+                    <div>
+                        <strong>Fast</strong>
+                        <span>High Performance</span>
+                    </div>
+                </div>
+
+
+                <div class="floating-card card-three">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    <div>
+                        <strong>Responsive</strong>
+                        <span>All Devices</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SERVICES PREVIEW
+        ========================== -->
+
+        <section class="services-preview">
+
+            <div class="section-heading">
+
+                <div>
+                    <span>WHAT WE DO</span>
+                    <h2>Our Expertise</h2>
+                </div>
+
+                <a href="{% url 'services' %}">
+                    View all
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <div class="mini-services">
+
+                <a href="{% url 'contact' %}" class="mini-card">
+
+                    <div class="mini-icon">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+
+                    <h3>Web Development</h3>
+
+                    <p>
+                        Modern and powerful websites.
+                    </p>
+
+                    <span class="mini-arrow">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </span>
+
+                </a>
+
+
+                <a href="{% url 'contact' %}" class="mini-card">
+
+                    <div class="mini-icon">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+
+                    <h3>Web Design</h3>
+
+                    <p>
+                        Beautiful interfaces and UX.
+                    </p>
+
+                    <span class="mini-arrow">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </span>
+
+                </a>
+
+
+                <a href="{% url 'contact' %}" class="mini-card">
+
+                    <div class="mini-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+
+                    <h3>E-Commerce</h3>
+
+                    <p>
+                        Complete online stores.
+                    </p>
+
+                    <span class="mini-arrow">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </span>
+
+                </a>
+
+
+                <a href="{% url 'contact' %}" class="mini-card">
+
+                    <div class="mini-icon">
+                        <i class="fa-solid fa-server"></i>
+                    </div>
+
+                    <h3>Backend</h3>
+
+                    <p>
+                        Secure and scalable systems.
+                    </p>
+
+                    <span class="mini-arrow">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CTA
+        ========================== -->
+
+        <section class="home-cta">
+
+            <div>
+
+                <span>
+                    HAVE A PROJECT IN MIND?
+                </span>
+
+                <h2>
+                    Let's turn your idea
+                    into reality.
+                </h2>
+
+            </div>
+
+            <a href="{% url 'contact' %}">
+                Start a Project
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

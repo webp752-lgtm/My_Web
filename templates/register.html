@@ -1,0 +1,196 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | Program it</title>
+
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Roboto:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+        
+        <div class="copyright">
+            © 2026
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+
+        <div class="auth-wrapper">
+
+
+            <div class="auth-card register-card">
+
+
+                <div class="auth-icon">
+
+                    <i class="fa-solid fa-user-plus"></i>
+
+                </div>
+
+
+                <div class="auth-title">
+
+                    <span>CREATE ACCOUNT</span>
+
+                    <h1>
+                        Join
+                        <strong>Program it</strong>
+                    </h1>
+
+                    <p>
+                        Create your account and start your journey.
+                    </p>
+
+                </div>
+
+
+                {% if messages %}
+
+                {% for message in messages %}
+
+                <div class="message">
+
+                    <i class="fa-solid fa-circle-exclamation"></i>
+
+                    {{ message }}
+
+                </div>
+
+                {% endfor %}
+
+                {% endif %}
+
+
+                <form method="POST" class="auth-form">
+
+                    {% csrf_token %}
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Username
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            <input type="text" name="username" placeholder="Choose a username" required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                            <input type="email" name="email" placeholder="your@email.com" required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Password
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input type="password" name="password" placeholder="Create a password" required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Confirm Password
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            <input type="password" name="confirm_password" placeholder="Confirm your password" required>
+
+                        </div>
+
+                    </div>
+
+
+                    <button type="submit" class="auth-button">
+
+                        Create Account
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </form>
+
+
+                <div class="auth-footer">
+
+                    Already have an account?
+
+                    <a href="{% url 'login' %}">
+                        Login
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </main>
+
+
+</body>
+
+</html>

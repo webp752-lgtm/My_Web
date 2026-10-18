@@ -1,0 +1,453 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>تأكيد الاشتراك | Program it</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="{% static 'css/pay.css' %}">
+
+
+    <!-- EmailJS -->
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+
+
+    <script>
+
+        (function () {
+
+            emailjs.init({
+                publicKey: "7ijtBQJ_3myppB74M"
+            });
+
+        })();
+
+    </script>
+
+</head>
+
+
+<body>
+
+
+    <div class="payment-wrapper">
+
+
+        <!-- معلومات التحويل -->
+
+        <div class="payment-info">
+
+            <h1>
+                تأكيد الاشتراك
+            </h1>
+
+
+            <p>
+                قم بتحويل قيمة الاشتراك إلى الرقم الموضح بالأسفل،
+                وبعد التحويل أدخل بيانات العملية لإرسال طلب الاشتراك.
+            </p>
+
+
+            <div class="transfer-box">
+
+                <div class="transfer-title">
+                    رقم التحويل
+                </div>
+
+
+                <div class="phone-number">
+                    01023723736
+                </div>
+
+            </div>
+
+
+            <div class="note">
+
+                بعد إتمام التحويل، قم بإدخال اسمك ورقم الواتساب
+                ورقم التحويل والمبلغ حتى يتم مراجعة العملية
+                من الإدارة وتفعيل اشتراكك.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- فورم الدفع -->
+
+        <div class="payment-form">
+
+
+            <h2>
+                بيانات الدفع
+            </h2>
+
+
+            <p class="subtitle">
+                أدخل بيانات التحويل الخاصة بك
+            </p>
+
+
+
+            <!-- الباقة -->
+
+            {% if plan %}
+
+            <div class="plan-card">
+
+                <span>
+                    الباقة المختارة
+                </span>
+
+
+                <strong>
+                    {{ plan.name }}
+                </strong>
+
+
+                {% if plan.price %}
+
+                <span style="margin-top: 5px;">
+
+                    {{ plan.price }} $
+
+                </span>
+
+                {% endif %}
+
+            </div>
+
+            {% endif %}
+
+
+
+            <!-- الفورم -->
+
+            <form method="POST" id="paymentForm">
+
+                {% csrf_token %}
+
+
+
+                {% if form %}
+
+                {{ form.as_p }}
+
+                {% else %}
+
+
+
+                <!-- الاسم -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        الاسم
+                    </label>
+
+
+                    <input type="text" id="name" name="name" placeholder="أدخل اسمك بالكامل" required>
+
+                </div>
+
+
+
+                <!-- رقم الواتساب -->
+
+                <div class="form-group">
+
+                    <label for="whatsapp">
+                        رقم الواتساب
+                    </label>
+
+
+                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="أدخل رقم الواتساب" inputmode="tel"
+                        required>
+
+                </div>
+
+
+
+                <!-- رقم التحويل -->
+
+                <div class="form-group">
+
+                    <label for="transfer_number">
+                        رقم التحويل
+                    </label>
+
+
+                    <input type="text" id="transfer_number" name="transfer_number" placeholder="أدخل رقم التحويل"
+                        required>
+
+                </div>
+
+
+
+                <!-- المبلغ -->
+
+                <div class="form-group">
+
+                    <label for="amount">
+                        المبلغ المحول
+                    </label>
+
+
+                    <input type="number" id="amount" name="amount" placeholder="أدخل المبلغ" min="1" required>
+
+                </div>
+
+
+                {% endif %}
+
+
+
+                <!-- زر الإرسال -->
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    إرسال طلب الاشتراك
+                </button>
+
+
+            </form>
+
+
+
+            <!-- الأمان -->
+
+            <div class="security">
+
+                🔒 بيانات التحويل تستخدم فقط لمراجعة طلب الاشتراك
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <script>
+
+
+        const paymentForm = document.getElementById("paymentForm");
+
+        const submitBtn = document.getElementById("submitBtn");
+
+
+
+        paymentForm.addEventListener("submit", function (event) {
+
+
+            // منع إرسال Django مباشرة
+
+            event.preventDefault();
+
+
+
+            // الحصول على الحقول
+
+            const nameInput =
+                document.getElementById("name");
+
+
+            const whatsappInput =
+                document.getElementById("whatsapp");
+
+
+            const transferInput =
+                document.getElementById("transfer_number");
+
+
+            const amountInput =
+                document.getElementById("amount");
+
+
+
+            // التأكد من وجود الحقول
+
+            if (
+                !nameInput ||
+                !whatsappInput ||
+                !transferInput ||
+                !amountInput
+            ) {
+
+                alert(
+                    "حدث خطأ في بيانات النموذج ❌"
+                );
+
+                return;
+
+            }
+
+
+
+            // الحصول على القيم
+
+            const name =
+                nameInput.value.trim();
+
+
+            const whatsapp =
+                whatsappInput.value.trim();
+
+
+            const transferNumber =
+                transferInput.value.trim();
+
+
+            const amount =
+                amountInput.value.trim();
+
+
+
+            // التحقق من البيانات
+
+            if (
+                !name ||
+                !whatsapp ||
+                !transferNumber ||
+                !amount
+            ) {
+
+                alert(
+                    "من فضلك أكمل جميع البيانات المطلوبة ❌"
+                );
+
+                return;
+
+            }
+
+
+
+            // اسم الباقة من Django
+
+            const planName =
+                "{{ plan.name|default:'غير محدد' }}";
+
+
+
+            // منع الضغط أكثر من مرة
+
+            submitBtn.disabled = true;
+
+            submitBtn.innerText =
+                "جاري إرسال الطلب...";
+
+
+
+            // البيانات التي سيتم إرسالها إلى EmailJS
+
+            const templateParams = {
+
+                name: name,
+
+                whatsapp: whatsapp,
+
+                transfer_number: transferNumber,
+
+                amount: amount,
+
+                plan: planName
+
+            };
+
+
+
+            // إرسال البيانات إلى EmailJS
+
+            emailjs.send(
+
+                "service_gl325vn",
+
+                "template_abtqc8c",
+
+                templateParams
+
+            )
+
+
+                .then(function (response) {
+
+
+                    console.log(
+                        "EmailJS Success:",
+                        response
+                    );
+
+
+                    alert(
+                        "تم إرسال طلب الاشتراك بنجاح ✅\n\n" +
+                        "سيتم مراجعة عملية التحويل من الإدارة."
+                    );
+
+
+
+                    // إرسال البيانات إلى Django
+
+                    paymentForm.submit();
+
+
+                })
+
+
+                .catch(function (error) {
+
+
+                    console.error(
+                        "EmailJS Error:",
+                        error
+                    );
+
+
+                    alert(
+                        "حدث خطأ أثناء إرسال الطلب ❌\n\n" +
+                        "تأكد من إعداد EmailJS بشكل صحيح."
+                    );
+
+
+
+                    // إعادة تفعيل الزر
+
+                    submitBtn.disabled = false;
+
+                    submitBtn.innerText =
+                        "إرسال طلب الاشتراك";
+
+
+                });
+
+
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>

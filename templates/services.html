@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=subscriptions" />
+    <link rel="stylesheet" href="{% static 'css/services.css' %}">
+    <title>Program it | Services</title>
+</head>
+
+<body>
+
+    <!-- =========================
+         Sidebar
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <nav class="sidebar-nav">
+
+            {% if user.is_authenticated %}
+
+            <div class="user-menu">
+
+                <div class="user-profile">
+
+                    <span>
+                        <i class="fa-solid fa-user"></i>
+
+                        {{ user.username }}
+                    </span>
+
+                </div>
+
+                <a href="{% url 'logout' %}" class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+
+            </div>
+
+            {% else %}
+
+            <a href="{% url 'login' %}">
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <span>Login</span>
+            </a>
+
+            {% endif %}
+
+            <a href="{% url 'home' %}"">
+                <i class=" fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="{% url 'services' %}" class="active">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Services</span>
+            </a>
+
+            <a href="{% url 'projects' %}">
+                <i class="fa-solid fa-code"></i>
+                <span>Projects</span>
+            </a>
+
+            <a href="{% url 'contact' %}">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+
+            <a href="{% url 'subscriptions' %}">
+                <span class="material-symbols-outlined">subscriptions</span>
+                <span>Subscriptions</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <span>© 2026</span>
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         Main Content
+    ========================== -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header class="page-header">
+            <div>
+                <span class="small-title">
+                    WEB SERVICES
+                </span>
+
+                <h1>
+                    Build Your
+                    <span>Digital Future</span>
+                </h1>
+
+                <p>
+                    We create modern, fast and scalable digital
+                    solutions for businesses and individuals.
+                </p>
+            </div>
+
+            <a href="{% url 'contact' %}" class="header-btn">
+                Start a Project
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </header>
+
+
+        <!-- =========================
+             Services
+        ========================== -->
+
+        <section class="services-section">
+
+            <div class="section-title">
+
+                <div>
+                    <span>OUR SERVICES</span>
+                    <h2>Everything you need</h2>
+                </div>
+
+                <p>
+                    Choose the service that fits your project.
+                </p>
+
+            </div>
+
+            <div class="services-grid">
+
+                {% for service in services_cards %}
+
+                <a href="{% url 'contact' %}" class="service-card">
+
+                    <div class="icon-box">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+
+                    <div class="service-content">
+
+                        <span class="service-number">
+                            {{ service.number }}
+                        </span>
+
+                        <h3>
+                            {{ service.title }}
+                        </h3>
+
+                        <p>
+                            {{ service.text }}
+                        </p>
+
+                        <p>
+                            {{ service.description }}
+                        </p>
+
+                    </div>
+
+                    <div class="arrow">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </div>
+
+                </a>
+
+                {% empty %}
+
+                <p>لا توجد خدمات حاليًا.</p>
+
+                {% endfor %}
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             CTA
+        ========================== -->
+
+        <section class="cta">
+
+            <div class="cta-icon">
+                <i class="fa-solid fa-rocket"></i>
+            </div>
+
+            <div class="cta-text">
+                <span>READY TO START?</span>
+
+                <h2>
+                    Let's build something amazing.
+                </h2>
+
+                <p>
+                    Tell us about your idea and let's turn it
+                    into a real digital product.
+                </p>
+            </div>
+
+            <a href="contact.html" class="cta-btn">
+                Contact Us
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

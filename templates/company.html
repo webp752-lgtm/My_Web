@@ -1,0 +1,478 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MTT | Company</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Roboto:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/company.css' %}">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            MTT
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="{% url 'home' %}">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+
+            <a href="{% url 'services' %}">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>Services</span>
+            </a>
+
+            <a href="{% url 'projects' %}">
+                <i class="fa-solid fa-code"></i>
+                <span>Projects</span>
+            </a>
+
+            </a>
+
+            <a href="{% url 'contact' %}">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            © 2026 MTT
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main-content">
+
+        <!-- HERO -->
+
+        <section class="company-hero">
+
+            <div class="hero-text">
+
+                <span class="small-title">
+                    ABOUT MTT
+                </span>
+
+                <h1>
+                    Modern
+                    <br>
+                    Technology
+                    <br>
+                    Technique
+                </h1>
+
+                <p>
+                    We create modern digital experiences, websites
+                    and web applications designed to help businesses
+                    grow in the digital world.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="{% url 'projects' %}" class="primary-btn">
+                        Back to Projects
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <a href="{% url 'contact' %}" class="secondary-btn">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- VISUAL -->
+
+            <div class="hero-visual">
+
+                <div class="visual-card">
+
+                    <div class="visual-top">
+
+                        <span>MTT</span>
+
+                        <i class="fa-solid fa-arrow-up-right-dots"></i>
+
+                    </div>
+
+                    <div class="visual-center">
+
+                        <div class="big-mtt">
+                            MTT
+                        </div>
+
+                        <span>
+                            DIGITAL SOLUTIONS
+                        </span>
+
+                    </div>
+
+                    <div class="visual-bottom">
+
+                        <span>WEB</span>
+                        <span>DESIGN</span>
+                        <span>CODE</span>
+
+                    </div>
+
+                </div>
+
+                <div class="circle circle-one"></div>
+                <div class="circle circle-two"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-code"></i>
+
+                <strong>
+                    20+
+                </strong>
+
+                <span>
+                    Projects
+                </span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-laptop-code"></i>
+
+                <strong>
+                    10+
+                </strong>
+
+                <span>
+                    Web Solutions
+                </span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-layer-group"></i>
+
+                <strong>
+                    6+
+                </strong>
+
+                <span>
+                    Services
+                </span>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <i class="fa-solid fa-bolt"></i>
+
+                <strong>
+                    100%
+                </strong>
+
+                <span>
+                    Commitment
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section class="about-section">
+
+            <div class="section-label">
+                WHO WE ARE
+            </div>
+
+            <div class="about-content">
+
+                <h2>
+                    Technology that
+                    <span>moves businesses forward.</span>
+                </h2>
+
+                <div class="about-text">
+
+                    <p>
+                        Modern Technology Technique is a digital
+                        technology brand focused on building
+                        modern websites and web applications.
+                    </p>
+
+                    <p>
+                        Our goal is simple: combine clean design,
+                        powerful technology and an excellent user
+                        experience to create digital products
+                        that people enjoy using.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SERVICES ================= -->
+
+        <section class="services-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span>
+                        WHAT WE DO
+                    </span>
+
+                    <h2>
+                        Our Expertise
+                    </h2>
+
+                </div>
+
+                <p>
+                    Everything you need to build a strong
+                    digital presence.
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                    <p>
+                        Fast, responsive and modern websites
+                        built using modern web technologies.
+                    </p>
+
+                    <span class="service-number">
+                        01
+                    </span>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+
+                    <h3>
+                        UI / UX Design
+                    </h3>
+
+                    <p>
+                        Clean and attractive interfaces focused
+                        on usability and user experience.
+                    </p>
+
+                    <span class="service-number">
+                        02
+                    </span>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+
+                    <h3>
+                        Responsive Design
+                    </h3>
+
+                    <p>
+                        Websites that look great on mobile,
+                        tablet and desktop devices.
+                    </p>
+
+                    <span class="service-number">
+                        03
+                    </span>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+
+                    <h3>
+                        E-Commerce
+                    </h3>
+
+                    <p>
+                        Modern online stores with products,
+                        shopping carts and checkout systems.
+                    </p>
+
+                    <span class="service-number">
+                        04
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TECHNOLOGIES ================= -->
+
+        <section class="technology-section">
+
+            <div class="section-label">
+                TECHNOLOGIES
+            </div>
+
+            <h2>
+                Built with modern
+                <span>technology.</span>
+            </h2>
+
+            <div class="technology-list">
+
+                <div class="tech">
+                    <i class="fa-brands fa-html5"></i>
+                    <span>HTML5</span>
+                </div>
+
+                <div class="tech">
+                    <i class="fa-brands fa-css3-alt"></i>
+                    <span>CSS3</span>
+                </div>
+
+                <div class="tech">
+                    <i class="fa-brands fa-js"></i>
+                    <span>JavaScript</span>
+                </div>
+
+                <div class="tech">
+                    <i class="fa-brands fa-python"></i>
+                    <span>Python</span>
+                </div>
+
+                <div class="tech">
+                    <i class="fa-solid fa-server"></i>
+                    <span>Django</span>
+                </div>
+
+                <div class="tech">
+                    <i class="fa-brands fa-git-alt"></i>
+                    <span>Git</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="company-cta">
+
+            <div>
+
+                <span>
+                    LET'S WORK TOGETHER
+                </span>
+
+                <h2>
+                    Have a project
+                    in mind?
+                </h2>
+
+            </div>
+
+            <a href="{% url 'contact' %}">
+
+                Start a Project
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            <span>
+                © 2026 Modern Technology Technique
+            </span>
+
+            <span>
+                Built with passion & code.
+            </span>
+
+        </footer>
+
+    </main>
+
+</body>
+
+</html>
